@@ -3,6 +3,10 @@ container = document.querySelector(".container")
 // Then he creates 16 x 16 divs for drawing
 // thus creates 256 divs called grid and gives each of them the classname of canvas
 // add the schedules as a child to container's parent node
+
+
+
+
 let createCanvas = function(newgrid) {
     for(i=0; i<Math.pow(newgrid, 2); i++) {
     const div = document.createElement("div");
@@ -35,13 +39,13 @@ let changeGridSize = function() {
     div.forEach(removeElement)
     
     createCanvas(newgrid)
-    changeStyle(newgrid)
+    draw()
 }
     const gridbutton = document.querySelector(".gridbutton")
 gridbutton.addEventListener("click", changeGridSize, draw)
 
-// function changeStyle(newgrid){
-//     const element = document.querySelectorAll(".canvas")
-//     element.style.height = 400/newgrid+"px"
-//     element.style.width = 400/newgrid+"px"
-// }
+
+const clearcanvasbutton = document.querySelector(".clearcanvasbutton")
+clearcanvasbutton.addEventListener("click", function() {
+    window.location.reload()
+})
