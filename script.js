@@ -4,35 +4,44 @@ container = document.querySelector(".container")
 // thus creates 256 divs called grid and gives each of them the classname of canvas
 // add the schedules as a child to container's parent node
 let createCanvas = function(newgrid) {
-    for(i=0; i<newgrid; i++) {
+    for(i=0; i<Math.pow(newgrid, 2); i++) {
     const div = document.createElement("div");
+    div.style.height = 400/newgrid + "px"
+    div.style.width = 400/newgrid + "px"
     div.className = "canvas"
     document.getElementById("container").appendChild(div)
     }
 }
-createCanvas()
 
+createCanvas()
+let draw = function () {
 const canvas = document.querySelectorAll(".canvas")
 canvas.forEach(canvas => {
     canvas.addEventListener("mouseover", function (e) {
         e.target.style.background = "black"
-})
+    })
 
 })
+}
+
 let changeGridSize = function() {
     newgrid = window.prompt("Choose new amount of squares per side!")
-    console.log(newgrid)
     const div = document.querySelectorAll(".canvas")
     function removeElement(elem) {
         document.getElementById("container").removeChild(elem)
+        
     }
+    
     div.forEach(removeElement)
+    
     createCanvas(newgrid)
-  
+    changeStyle(newgrid)
 }
+    const gridbutton = document.querySelector(".gridbutton")
+gridbutton.addEventListener("click", changeGridSize, draw)
 
-  const gridbutton = document.querySelector(".gridbutton")
-gridbutton.addEventListener("click", changeGridSize)
-
-
-
+// function changeStyle(newgrid){
+//     const element = document.querySelectorAll(".canvas")
+//     element.style.height = 400/newgrid+"px"
+//     element.style.width = 400/newgrid+"px"
+// }
