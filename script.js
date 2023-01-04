@@ -5,7 +5,7 @@ container = document.querySelector(".container")
 // add the schedules as a child to container's parent node
 
 
-
+let defaultCanvas = 16
 
 let createCanvas = function(newgrid) {
     for(i=0; i<Math.pow(newgrid, 2); i++) {
@@ -16,8 +16,7 @@ let createCanvas = function(newgrid) {
     document.getElementById("container").appendChild(div)
     }
 }
-
-createCanvas()
+    //draw funciton 
 let draw = function () {
 const canvas = document.querySelectorAll(".canvas")
 canvas.forEach(canvas => {
@@ -27,7 +26,9 @@ canvas.forEach(canvas => {
 
 })
 }
-
+    createCanvas(defaultCanvas)
+    draw()
+    
 let changeGridSize = function() {
     newgrid = window.prompt("Choose new amount of squares per side!")
     const div = document.querySelectorAll(".canvas")
