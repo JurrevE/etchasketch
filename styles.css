@@ -3,6 +3,9 @@
     padding: 0px;
     
 }
+body {
+    background-color: lightgrey;
+}
 
 header {
     display: flex;
